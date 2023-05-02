@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     input: {
         width: '80%',
         borderBottomWidth: 1,
-        borderBottomColor: '#52528C',
+        borderBottomColor: '#1D3354',
         color: '#212121',
     },
 }); 

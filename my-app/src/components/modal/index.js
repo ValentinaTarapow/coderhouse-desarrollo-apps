@@ -14,12 +14,12 @@ const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDele
                 <View style={styles.buttonContainer}>
                     <Button 
                     title='Cancel'
-                    color='#52528C'
+                    color='#467599'
                     onPress={onCancel}
                     />
                     <Button 
                     title='Delete'
-                    color='#52528C'
+                    color='#D64045'
                     onPress={() => onDelete(selectedEvent.id)}
                     />
                 </View>
