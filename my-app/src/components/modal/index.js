@@ -2,14 +2,14 @@ import React from "react";
 import { Modal, View, Text, Button } from "react-native";
 import { styles } from "./styles";
 
-const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDelete}) => {
+const CustomModal = ({ isVisible, animationType, selectedNote, onCancel, onDelete}) => {
     return (
         <Modal visible={isVisible} animationType={animationType}>
             <View style={styles.container}>
-                <Text style={styles.title}>Event Detail</Text>
+                <Text style={styles.title}>Note Detail</Text>
                 <View style={styles.detailContainer}>
                     <Text style={styles.detailMessage}>Are you sure to delete this item?</Text>
-                    <Text style={styles.selectedEvent}>{selectedEvent?.value}</Text>
+                    <Text style={styles.selectedNote}>{selectedNote?.value}</Text>
                 </View>
                 <View style={styles.buttonContainer}>
                     <Button 
@@ -20,7 +20,7 @@ const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDele
                     <Button 
                     title='Delete'
                     color='#D64045'
-                    onPress={() => onDelete(selectedEvent.id)}
+                    onPress={() => onDelete(selectedNote.id)}
                     />
                 </View>
             </View>

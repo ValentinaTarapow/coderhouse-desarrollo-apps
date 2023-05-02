@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         color: '#212121',
     },
-    selectedEvent: {
+    selectedNote: {
         fontSize: 14,
         color: '#212121',
         fontWeight: 'bold',

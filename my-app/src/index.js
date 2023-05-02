@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { Text, View, Button, TextInput, FlatList, TouchableOpacity, Modal } from 'react-native';
 import { styles } from './styles';
-import { Events, Input, CustomModal } from './components/index';
+import { Notes, Input, CustomModal } from './components/index';
 
 export default function App() {
     const [text, setText] = useState('');
-    const [events, setEvents] = useState([]);
+    const [notes, setNotes] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
-    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [selectedNote, setSelectedNote] = useState(null);
 
-    const onAddEvent = () => {
+    const onAddNote = () => {
         if (text.length === 0) return;
-        setEvents([
-            ...events,
+        setNotes([
+            ...notes,
             {
                 id: Math.random().toString(),
                 value: text
@@ -21,19 +21,19 @@ export default function App() {
         setText('');
     }
 
-    const onHandlerEvent = (id) => {
+    const onHandlerNote = (id) => {
         setModalVisible(!modalVisible);
-        const selectedEvent = events.find(event => event.id === id);
-        setSelectedEvent(selectedEvent);
+        const selectedNote = notes.find(note => note.id === id);
+        setSelectedNote(selectedNote);
     }
 
     const onHandlerCancelModal = () => {
         setModalVisible(!modalVisible);
-        setSelectedEvent(null);
+        setSelectedNote(null);
     }
 
-    const onHandlerDeleteEvent = (id) => {
-        setEvents(events.filter(event => event.id !== id));
+    const onHandlerDeleteNote = (id) => {
+        setNotes(notes.filter(note => note.id !== id));
         setModalVisible(!modalVisible);
     }
 
@@ -45,17 +45,17 @@ export default function App() {
             buttonColor='#1D3354'
             buttonTitle='Add'
             onChangeText={(text) => setText(text)}
-            onHandlerButton={onAddEvent}
-            placeholder='Enter your event' 
+            onHandlerButton={onAddNote}
+            placeholder='Enter your note' 
             value={text}
         />
-        <Events events={events} onSelectItem={onHandlerEvent} />
+        <Notes notes={notes} onSelectItem={onHandlerNote} />
         <CustomModal 
             isVisible={modalVisible} 
             animationType='slide' 
             onCancel={onHandlerCancelModal} 
-            onDelete={onHandlerDeleteEvent} 
-            selectedEvent={selectedEvent}  
+            onDelete={onHandlerDeleteNote} 
+            selectedNote={selectedNote}  
         />
         </View>
     );

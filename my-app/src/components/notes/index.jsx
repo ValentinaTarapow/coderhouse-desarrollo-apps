@@ -1,11 +1,11 @@
 import React from "react";
 import { View, FlatList } from "react-native";
-import EventItem from "./item";
+import NoteItem from "./item";
 import { styles } from "./styles";
 
-const Events = ({ events, onSelectItem }) => {
+const Notes = ({ notes, onSelectItem }) => {
     const renderItem = ({ item }) => (
-        <EventItem item={item} onSelectItem={onSelectItem} />
+        <NoteItem item={item} onSelectItem={onSelectItem} />
     );
 
     const keyExtractor = (item) => item.id;
@@ -13,11 +13,11 @@ const Events = ({ events, onSelectItem }) => {
     return (
         <FlatList 
             renderItem={renderItem}
-            data={events}
+            data={notes}
             keyExtractor={keyExtractor}
             alwaysBounceVertical={false}
         />
     )
 };
 
-export default Events;
+export default Notes;
